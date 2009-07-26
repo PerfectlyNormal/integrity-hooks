@@ -11,11 +11,11 @@ module Integrity
         <<-HAML
 %p.normal
   %label{ :for => "irc_notifier_uri" } Send to
+  To send to multiple URLs, separate the URLs with three stars (***)
   %input.text#irc_notifier_uri{                          |
     :name => "notifiers[Hooks][uri]",                    |
     :type => "text",                                     |
-    :value => config["uri"] ||                           |
-      "irc://IntegrityBot@irc.freenode.net:6667/#test" } |
+    :value => config["uri"] }                            |
         HAML
       end
 
@@ -25,7 +25,9 @@ module Integrity
       end
 
       def deliver!
-        Net::HTTP.post_form(URI.parse(uri), {:payload => payload.to_json})
+        uri.split("***").each do |target|
+          Net::HTTP.post_form(URI.parse(target), {"payload" => payload.to_json})
+        end
       end
 
       def payload
