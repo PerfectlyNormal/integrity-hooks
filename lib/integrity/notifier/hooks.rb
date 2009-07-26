@@ -26,7 +26,25 @@ module Integrity
 
       def deliver!
         uri.split("***").each do |target|
-          Net::HTTP.post_form(URI.parse(target), {"payload" => payload.to_json})
+          begin
+            Timeout.timeout(5) do
+              Integrity.log("POSTing to #{target}")
+              response = Net::HTTP.post_form(URI.parse(target), {"payload" => payload.to_json})
+              case response
+              when Net::HTTPSuccess
+                Integrity.log("POST to #{target} successful. Response: #{response.body}")
+                true
+              else
+                # TODO: N retries
+                Integrity.log("POST to #{target} failed (#{response.code} #{response.msg}). Response: \n#{response.body}")
+                false
+              end
+            end
+          rescue Errno::ECONNREFUSED
+            Integrity.log("Connection refused for #{target}")
+          rescue TimeoutError
+            Integrity.log("Timed out POST to #{target}")
+          end
         end
       end
 
