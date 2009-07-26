@@ -10,9 +10,9 @@ module Integrity
       def self.to_haml
         <<-HAML
 %p.normal
-  %label{ :for => "irc_notifier_uri" } Send to
+  %label{ :for => "hooks_notifier_uri" } Send to
   To send to multiple URLs, separate the URLs with three stars (***)
-  %input.text#irc_notifier_uri{                          |
+  %input.text#hooks_notifier_uri{                       |
     :name => "notifiers[Hooks][uri]",                    |
     :type => "text",                                     |
     :value => config["uri"] }                            |
