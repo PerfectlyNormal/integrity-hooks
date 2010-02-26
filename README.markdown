@@ -33,10 +33,13 @@ The contents is as follows:
 Setup Instructions
 ==================
 
-Just install this gem with `gem install integrity-hooks`
-and then in your Rackup (ie, `config.ru`) file:
+Add this gem to your `Gemfile`:
 
-    require "rubygems"
+    gem "integrity-hooks", "0.0.8"
+
+Then some trickery with the bundler (`bundle unlock && bundle install && bundle pack`).
+Finally, in your `init.rb`:
+
     require "integrity/notifier/hooks"
 
 Now, just edit the project and the configuration should be there
