@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "integrity-hooks"
-  s.version           = "0.0.7"
+  s.version           = "0.0.8"
   s.date              = "2010-02-26"
   s.summary           = "Web hooks notifier for the Integrity continuous integration server"
   s.homepage          = "http://eastblue.org/projects/integrity"
@@ -8,6 +8,8 @@ Gem::Specification.new do |s|
   s.authors           = ["Per Christian B. Viken"]
   s.has_rdoc          = false
   s.files             = %w[
+ChangeLog
+TODO
 LICENSE
 README.markdown
 Rakefile
