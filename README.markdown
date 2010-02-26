@@ -33,7 +33,7 @@ The contents is as follows:
 Setup Instructions
 ==================
 
-Just install this gem with `gem install PerfectlyNormal-integrity-hooks`
+Just install this gem with `gem install integrity-hooks`
 and then in your Rackup (ie, `config.ru`) file:
 
     require "rubygems"
