@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name              = "integrity-hooks"
-  s.version           = "0.0.8"
-  s.date              = "2010-02-26"
+  s.version           = "0.0.9"
+  s.date              = "2010-03-04"
   s.summary           = "Web hooks notifier for the Integrity continuous integration server"
   s.homepage          = "http://eastblue.org/projects/integrity"
   s.email             = "perchr@northblue.org"
