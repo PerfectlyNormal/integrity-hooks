@@ -53,7 +53,7 @@ module Integrity
           "project"       => build.project.name,
           "short_message" => short_message,
           "full_message"  => full_message,
-          "url"           => commit_url
+          "url"           => build_url
         }
       end
     end
